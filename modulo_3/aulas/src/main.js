@@ -23,6 +23,8 @@ async function PromiseExe(){
 
     console.log(response)
 }
+
+PromiseExe()
 */
 
 /* se deu erro você ira instalar @babel/plugin-transform-async-to-generator @babel/polyfill -D 
