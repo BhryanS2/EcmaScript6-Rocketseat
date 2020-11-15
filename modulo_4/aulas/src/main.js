@@ -2,6 +2,7 @@ import api from './api'
 
 class App{
     constructor(){
+        //todos os repositorios ficam aqui
         this.repositores = []
 
         this.formEl = document.getElementById('repo-form')

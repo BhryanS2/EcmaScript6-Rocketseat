@@ -1,5 +1,4 @@
 
-
 ul{
     list-style: none;
     margin: 0;
@@ -18,6 +17,7 @@ img{
     float: left;
     margin-right: 10px;
     width: 80px;
+    border-radius: 50%;
 }
 
 strong{
@@ -26,4 +26,60 @@ strong{
 
 p{
     margin: 5px 0;
+}
+
+p,strong, li{
+    color: #fff;
+}
+
+a{
+    color: red;
+    text-decoration: none;
+}
+
+a:hover{
+    color: rgb(0, 105, 209);
+}
+
+li{
+    margin-left: 0.5rem;
+}
+
+body{
+    background-color: black;
+}
+
+#repo-form{
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    background: #ccc;
+    border: none;
+    outline: none;
+
+    transition: 0.2s;
+
+    text-align: center;
+    font-size: 1.5rem;
+
+    margin-top: 0.5rem;
+
+    width: 10%;
+}
+
+button:hover{
+    transform: scale(1.1);
+    background: rgb(0, 105, 209);
+}
+
+input{
+    background: #cdcd;
+    outline: none;
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    width: 80%;
 }
