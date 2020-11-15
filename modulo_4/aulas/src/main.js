@@ -15,7 +15,7 @@ class App{
     registerHandlers(){
         this.formEl.onsubmit = event => this.addRepository(event)
     }
-
+    //aparece uma msg de carregando
     setlaoding(loading = true) {
 
         if(loading === true){
@@ -30,7 +30,7 @@ class App{
             document.getElementById("loading")
         }
     }
-
+    //busca por respositorios
     async addRepository(event){
         event.preventDefault()
 
