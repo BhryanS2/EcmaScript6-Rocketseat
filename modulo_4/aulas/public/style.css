@@ -83,3 +83,11 @@ input{
     margin-top: 0.5rem;
     width: 80%;
 }
+
+#btnDell{
+    margin-left: 50%;
+}
+
+#btnDell:hover{
+    background-color: red;
+}

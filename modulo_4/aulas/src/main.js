@@ -7,7 +7,7 @@ class App{
 
         this.formEl = document.getElementById('repo-form')
         this.listEl = document.getElementById('repo-list')
-        this.inputEl = document.querySelector('input[name=repository]')
+        this.inputEl = document.querySelector('input[name=repository]') 
 
         this.registerHandlers();
     }    
@@ -40,7 +40,7 @@ class App{
 
         try {
             const response = await api.get(`/repos/${repoInput}`)
-            console.log(response)
+            //console.log(response)
 
             const { name, description, html_url, owner: { avatar_url } } = response.data
 
@@ -61,34 +61,62 @@ class App{
         }
         this.setlaoding(false)
     }
+
     render(){
         //apagando conteúdo
         this.listEl.innerHTML = ""
 
         this.repositores.forEach(repo => {
-            let imgEl = document.createElement('img')
+            var imgEl = document.createElement('img')
             imgEl.setAttribute('src', repo.avatar_url)
 
-            let titleEl = document.createElement('strong')
+            var titleEl = document.createElement('strong')
             titleEl.appendChild(document.createTextNode(repo.name))
 
-            let descriptionEl = document.createElement('p')
+            var descriptionEl = document.createElement('p')
             descriptionEl.appendChild(document.createTextNode(repo.description))
 
-            let linkEl = document.createElement('a')
+            var linkEl = document.createElement('a')
             linkEl.setAttribute('target', '_blank')
             linkEl.setAttribute('href', repo.html_url)
             linkEl.appendChild(document.createTextNode('Acessar'))
 
-            let listItem = document.createElement('li')
+            var buttonEl = document.createElement('button')
+            buttonEl.setAttribute('id', 'btnDell')
+            buttonEl.appendChild(document.createTextNode('excluir'))
+
+            const listItem = document.createElement('li')
             listItem.appendChild(imgEl)
             listItem.appendChild(titleEl)
             listItem.appendChild(descriptionEl)
             listItem.appendChild(linkEl)
+            listItem.appendChild(buttonEl)
+
 
             this.listEl.appendChild(listItem)
+            
+            
+            this.btnEl = document.getElementById('btnDell')
+            this.deletar()
+        })
+        
+    }   
+
+    deletar(){
+        this.btnEl.onclick = event => this.deletarRepo(event)
+    }
+
+    deletarRepo(event){
+        let containerUl = document.querySelector("#repo-list")
+        let containerLi = document.querySelector("li")
+        
+        containerLi.remove()
+        containerUl.firstChild.remove()
+        this.repositores.forEach(repo => {
+           console.log(repo)
         })
     }
+
 }
 
 new App()
